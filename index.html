@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aroma's Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <aside class="sidebar" aria-label="Primary navigation">
+      <div class="brand">
+        <h1>Aroma's Dashboard</h1>
+        <p>Restaurant Hub</p>
+      </div>
+
+      <nav class="nav-list">
+        <a href="#dashboard" data-screen="dashboard"><span class="nav-icon">DB</span>Dashboard</a>
+        <a href="#orders" data-screen="orders"><span class="nav-icon">OR</span>Orders</a>
+        <a href="#menu" data-screen="menu"><span class="nav-icon">MN</span>Menu</a>
+        <a href="#customers" data-screen="customers"><span class="nav-icon">CU</span>Customers</a>
+        <a href="#reservations" data-screen="reservations"><span class="nav-icon">RS</span>Reservations</a>
+        <a href="#marketing" data-screen="marketing"><span class="nav-icon">MK</span>Marketing</a>
+        <a href="#finances" data-screen="finances"><span class="nav-icon">FN</span>Finances</a>
+        <a href="#analytics" data-screen="analytics"><span class="nav-icon">AN</span>Analytics</a>
+        <span class="nav-spacer"></span>
+        <a href="#settings" data-screen="settings"><span class="nav-icon">ST</span>Settings</a>
+        <a class="logout" href="#logout" data-action="logout"><span class="nav-icon">LO</span>Logout</a>
+      </nav>
+
+      <button class="status-button" type="button" data-action="status">
+        <span class="pulse-mark"></span>
+        Live Status
+      </button>
+    </aside>
+
+    <main class="app-shell">
+      <header class="topbar">
+        <div class="branch-search">
+          <strong>Main Branch</strong>
+          <label class="search-box">
+            <span aria-hidden="true">/</span>
+            <input id="globalSearch" aria-label="Search dashboard data" placeholder="Search dashboard..." />
+          </label>
+        </div>
+
+        <div class="user-tools">
+          <button class="icon-button has-alert" type="button" aria-label="Notifications" data-action="notifications">N</button>
+          <button class="icon-button" type="button" aria-label="Help" data-action="help">?</button>
+          <button class="profile" type="button" data-action="profile" aria-label="Open admin profile">
+            <span class="profile-copy">
+              <strong>Admin User</strong>
+              <span>Restaurant Admin</span>
+            </span>
+            <span class="avatar" aria-hidden="true">AU</span>
+          </button>
+        </div>
+      </header>
+
+      <section class="content" id="viewRoot" aria-live="polite"></section>
+
+      <button class="fab" type="button" aria-label="Open messages" data-action="messages">M</button>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <div class="modal-backdrop" id="modalBackdrop" hidden>
+      <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button class="modal-close" type="button" data-action="close-modal" aria-label="Close dialog">x</button>
+        <p class="eyebrow" id="modalEyebrow">Aroma's Dashboard</p>
+        <h2 id="modalTitle">No backend connected</h2>
+        <p id="modalBody">This action is available and leaves every dataset at 0.</p>
+        <div class="modal-actions" id="modalActions"></div>
+      </section>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
